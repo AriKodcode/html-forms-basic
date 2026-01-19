@@ -6,9 +6,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(
-    'C:/Users/internet/Desktop/html_css/week_8/day_2/html-forms basic/index.html',
-  );
+  res.sendFile('/index.html');
 });
 
 app.get('/tasks', async (req, res) => {
