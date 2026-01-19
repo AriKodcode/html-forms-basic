@@ -6,7 +6,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html');
+  res.sendFile(
+    'C:/Users/internet/Desktop/html_css/week_8/day_2/html-forms basic/index.html',
+  );
 });
 
 app.get('/tasks', async (req, res) => {
@@ -26,6 +28,6 @@ app.post('/mission', checkBody, async (req, res) => {
   res.status(200).json(req.body);
 });
 
-app.listen(5501, () => {
+app.listen(3000, () => {
   console.log('server run...');
 });
