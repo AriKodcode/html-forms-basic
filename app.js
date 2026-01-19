@@ -5,18 +5,16 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/get', (req, res) => {
-  res.sendFile(
-    'C:/Users/internet/Desktop/html_css/week_8/day_2/html-forms basic/index.html',
-  );
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
 });
 
-app.get('/get/tasks', async (req, res) => {
+app.get('/tasks', async (req, res) => {
   res
     .status(200)
     .json(JSON.parse(await fs.promises.readFile('./db.json', 'utf-8')));
 });
-app.post('/get/mission', checkBody, async (req, res) => {
+app.post('/mission', checkBody, async (req, res) => {
   const data = JSON.parse(await fs.promises.readFile('./db.json', 'utf-8'));
   const mission = req.body.mission;
   data.push({ mission: mission });
